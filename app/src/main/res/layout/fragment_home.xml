@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".HomeFragment">
+
+
+<TextView
+    android:id="@+id/txtHeadHome"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginTop="10dp"
+    android:gravity="center_vertical"
+    android:text="Home"
+    android:textColor="@color/accent"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<ImageButton
+    android:id="@+id/imgBtnSearch"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp"
+    android:background="@color/white"
+    android:contentDescription="Search"
+    android:scaleType="centerCrop"
+    android:src="@drawable/ic_filter"
+    android:padding="8dp"
+    app:layout_constraintBottom_toBottomOf="@id/txtHeadHome"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintTop_toTopOf="@id/txtHeadHome" />
+
+
+<TextView
+    android:id="@+id/txtWouldLike"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="What would you like?"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="@id/txtHeadHome"
+    app:layout_constraintTop_toBottomOf="@id/txtHeadHome" />
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardRandomMeal"
+    android:layout_width="0dp"
+    android:layout_height="200dp"
+    app:cardCornerRadius="10dp"
+    app:cardUseCompatPadding="true"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="@id/txtHeadHome"
+    app:layout_constraintTop_toBottomOf="@id/txtWouldLike">
+
+    <ImageView
+        android:id="@+id/imgRandomMeal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="home" />
+        android:background="@color/accent"
+        />
+</androidx.cardview.widget.CardView>
 
-</FrameLayout>
+
+<TextView
+    android:id="@+id/txtPopulars"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Populars"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="@id/txtHeadHome"
+    app:layout_constraintTop_toBottomOf="@id/cardRandomMeal" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rcyPopular"
+    android:layout_width="0dp"
+    android:layout_height="120dp"
+    android:layout_marginHorizontal="15dp"
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/txtPopulars"
+
+    tools:listitem="@layout/cardv_popular_items" />
+
+
+<TextView
+    android:id="@+id/txtCategory"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:text="Category"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="@id/txtHeadHome"
+    app:layout_constraintTop_toBottomOf="@id/rcyPopular" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rcyCategory"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="15dp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="@id/txtHeadHome"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/txtCategory"
+    tools:listitem="@layout/cardv_category_items" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
