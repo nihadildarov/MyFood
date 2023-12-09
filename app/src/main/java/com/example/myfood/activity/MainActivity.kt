@@ -1,12 +1,10 @@
-package com.example.myfood
+package com.example.myfood.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
+import com.example.myfood.R
 import com.example.myfood.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

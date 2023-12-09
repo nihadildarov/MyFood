@@ -41,18 +41,29 @@ android {
 
 dependencies {
     val navVersion = "2.7.5"
+    val retrofitVersion = "2.9.0"
+    val glideVersion = "4.16.0"
+    val lifecycleVersion = "2.6.2"
 
 
     //Navigation component
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
-    //intuit
-//    implementation("com.intuit.sdp:sdp-android:1.0.6")
-//    implementation("com.intuit.ssp:ssp-android:1.0.6")
+    //Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:$glideVersion")
 
     //gif
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
+
+    //viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
+    implementation("android.arch.lifecycle-extensions:2.2.0")
 
 
     // Default dependencies
