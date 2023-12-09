@@ -1,4 +1,4 @@
-package com.example.myfood.fragment
+package com.example.myfood.fragment.categories
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,17 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myfood.R
-import com.example.myfood.databinding.FragmentFavoritesBinding
+import com.example.myfood.databinding.FragmentCategoriesBinding
 
-
-class FavoritesFragment : Fragment() {
-    private lateinit var binding: FragmentFavoritesBinding
-
+class CategoriesFragment : Fragment() {
+    private lateinit var binding:FragmentCategoriesBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFavoritesBinding.inflate(inflater,container,false)
+        binding = FragmentCategoriesBinding.inflate(inflater,container,false)
         return binding.root
     }
 

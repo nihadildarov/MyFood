@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -53,6 +54,7 @@ dependencies {
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:$glideVersion")
@@ -63,7 +65,9 @@ dependencies {
     //viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion")
-    implementation("android.arch.lifecycle-extensions:2.2.0")
+
+    //ksp
+    ksp("androidx.room:room-compiler:2.6.1")
 
 
     // Default dependencies
