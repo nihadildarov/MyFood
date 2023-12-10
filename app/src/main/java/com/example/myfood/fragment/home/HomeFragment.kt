@@ -15,6 +15,7 @@ import com.example.myfood.fragment.home.viewmodel.HomeViewModel
 import com.example.myfood.fragment.home.viewmodel.HomeViewModelFactory
 import com.example.myfood.retrofit.MealService
 import com.example.myfood.retrofit.RetrofitInstance
+import com.example.myfood.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,13 +24,15 @@ import java.lang.Exception
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel:HomeViewModel by viewModels {
+    private val viewModel: HomeViewModel by viewModels {
         HomeViewModelFactory(RetrofitInstance.getInstance().create(MealService::class.java))
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -37,18 +40,32 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getRandomMeal()
         observeRandomMeal()
-
     }
 
 
-    private fun observeRandomMeal(){
-        viewModel.meal.observe(viewLifecycleOwner){
-            Log.e("TEST","ObserveRandomMeal")
-            println("Meal ID = ${it.meals.get(0).idMeal}")
-            Glide.with(this@HomeFragment).load(it.meals.get(0).strMealThumb).into(binding.imgRandomMeal)
+    private fun observeRandomMeal() {
+        viewModel.meal.observe(viewLifecycleOwner) {
+
+            when (it) {
+                Resource.Loading -> {
+                    binding.progressRandomMeal.visibility = View.VISIBLE
+                }
+                is Resource.Success -> {
+                    binding.progressRandomMeal.visibility = View.INVISIBLE
+                    Glide.with(this@HomeFragment).load(it.data.meals[0].strMealThumb)
+                        .into(binding.imgRandomMeal)
+
+                }
+                is Resource.Error -> {
+                    binding.progressRandomMeal.visibility = View.INVISIBLE
+                }
+            }
         }
     }
 
+
+
+    
 
 
 }

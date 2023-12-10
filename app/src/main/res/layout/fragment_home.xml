@@ -72,6 +72,13 @@ tools:context=".fragment.home.HomeFragment">
         android:background="@color/accent"
         android:scaleType="centerCrop"
         android:contentDescription="RandomImage" />
+
+    <ProgressBar
+        android:id="@+id/progressRandomMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/white"/>
 </androidx.cardview.widget.CardView>
 
 
