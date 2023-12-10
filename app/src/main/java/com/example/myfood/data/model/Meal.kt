@@ -1,4 +1,4 @@
-package com.example.myfood.data
+package com.example.myfood.data.model
 
 data class Meal(
     val dateModified: Any,

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.myfood.data.MealList
+import com.example.myfood.data.model.MealList
 import com.example.myfood.retrofit.MealService
 import com.example.myfood.utils.Resource
 import kotlinx.coroutines.Dispatchers

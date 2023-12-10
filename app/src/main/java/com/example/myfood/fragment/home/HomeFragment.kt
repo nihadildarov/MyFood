@@ -1,25 +1,25 @@
 package com.example.myfood.fragment.home
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.example.myfood.data.Meal
+import com.example.myfood.R
 import com.example.myfood.databinding.FragmentHomeBinding
 import com.example.myfood.fragment.home.viewmodel.HomeViewModel
 import com.example.myfood.fragment.home.viewmodel.HomeViewModelFactory
 import com.example.myfood.retrofit.MealService
 import com.example.myfood.retrofit.RetrofitInstance
 import com.example.myfood.utils.Resource
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 
 
 class HomeFragment : Fragment() {
@@ -40,6 +40,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getRandomMeal()
         observeRandomMeal()
+        goToRandomMealDetail()
     }
 
 
@@ -50,12 +51,14 @@ class HomeFragment : Fragment() {
                 Resource.Loading -> {
                     binding.progressRandomMeal.visibility = View.VISIBLE
                 }
+
                 is Resource.Success -> {
                     binding.progressRandomMeal.visibility = View.INVISIBLE
                     Glide.with(this@HomeFragment).load(it.data.meals[0].strMealThumb)
                         .into(binding.imgRandomMeal)
 
                 }
+
                 is Resource.Error -> {
                     binding.progressRandomMeal.visibility = View.INVISIBLE
                 }
@@ -64,8 +67,11 @@ class HomeFragment : Fragment() {
     }
 
 
-
-    
+    private fun goToRandomMealDetail() {
+        binding.imgRandomMeal.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_randomMealDetailFragment)
+        }
+    }
 
 
 }

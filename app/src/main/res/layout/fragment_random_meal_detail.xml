@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RandomMealDetailFragment">
+
+    <Toolbar
+        android:id="@+id/txtMealName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:title="Meal Name"
+        android:titleTextColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:nestedScrollingEnabled="false"
+        android:background="@color/accent"/>
+
+    <ImageButton
+        android:id="@+id/imgBtnFavorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_favorite_outlined"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@id/txtMealName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtMealName" />
+
+
+
+    <ImageView
+        android:id="@+id/imgRandomMealDetail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="RandomMeal"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@id/guide1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtMealName"
+        android:background="@color/accent"
+        />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:drawableStart="@drawable/ic_btm_category"
+        android:padding="4dp"
+        android:text="CategoryName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide1" />
+
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:drawableStart="@drawable/ic_location"
+        android:padding="4dp"
+        android:text="Location"
+        app:layout_constraintStart_toEndOf="@id/txtCategory"
+        app:layout_constraintTop_toBottomOf="@id/guide1" />
+
+
+
+
+    <TextView
+        android:id="@+id/txtInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtCategory" />
+
+    <TextView
+        android:id="@+id/txtInstructionGet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="Instruction sample here"
+        android:textColor="@color/gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/imgBtnVideoRandomMeal"
+        app:layout_constraintEnd_toEndOf="@id/txtInstruction"
+        app:layout_constraintStart_toStartOf="@id/txtInstruction"
+        app:layout_constraintTop_toBottomOf="@id/txtInstruction" />
+
+    <ImageButton
+        android:id="@+id/imgBtnVideoRandomMeal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:src="@drawable/ic_video"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
