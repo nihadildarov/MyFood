@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -18,8 +21,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    val props = Properties()
+    props.load(FileInputStream("environment.properties"))
     buildTypes {
+
+        debug {
+            buildConfigField("String","BASE_URL",props["BASE_URL_DEV"].toString())
+        }
         release {
+            buildConfigField("String","BASE_URL",props["BASE_URL_PROD"].toString())
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -37,14 +47,17 @@ android {
 
     buildFeatures{
         viewBinding = true
+        buildConfig = true
     }
 }
 
 dependencies {
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     val navVersion = "2.7.5"
     val retrofitVersion = "2.9.0"
     val glideVersion = "4.16.0"
     val lifecycleVersion = "2.6.2"
+    val work_version = "2.9.0"
 
 
     //Navigation component
@@ -69,6 +82,8 @@ dependencies {
     //ksp
     ksp("androidx.room:room-compiler:2.6.1")
 
+    //worker
+    implementation("androidx.work:work-runtime-ktx:$work_version")
 
     // Default dependencies
     implementation("androidx.core:core-ktx:1.12.0")

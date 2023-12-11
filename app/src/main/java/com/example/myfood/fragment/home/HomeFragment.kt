@@ -38,6 +38,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        blurPageOpen()
         viewModel.getRandomMeal()
         observeRandomMeal()
         goToRandomMealDetail()
@@ -70,6 +71,12 @@ class HomeFragment : Fragment() {
     private fun goToRandomMealDetail() {
         binding.imgRandomMeal.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_randomMealDetailFragment)
+        }
+    }
+
+    private fun blurPageOpen(){
+        binding.txtHeadHome.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_blurFragment)
         }
     }
 

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.randomMealDetailFragment -> binding.btmNav.visibility = View.GONE
+                R.id.blurFragment -> binding.btmNav.visibility = View.GONE
                 else -> binding.btmNav.visibility = View.VISIBLE
             }
         }

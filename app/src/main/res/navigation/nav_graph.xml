@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_randomMealDetailFragment"
             app:destination="@id/randomMealDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_blurFragment"
+            app:destination="@id/blurFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -29,4 +32,9 @@
         android:name="com.example.myfood.RandomMealDetailFragment"
         android:label="fragment_random_meal_detail"
         tools:layout="@layout/fragment_random_meal_detail" />
+    <fragment
+        android:id="@+id/blurFragment"
+        android:name="com.example.myfood.blurworkertest.fragment.BlurFragment"
+        android:label="fragment_blur"
+        tools:layout="@layout/fragment_blur" />
 </navigation>
