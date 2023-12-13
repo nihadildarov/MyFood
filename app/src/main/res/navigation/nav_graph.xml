@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_blurFragment"
             app:destination="@id/blurFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_viewPagerActivity"
+            app:destination="@id/viewPagerActivity" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -37,4 +40,9 @@
         android:name="com.example.myfood.blurworkertest.fragment.BlurFragment"
         android:label="fragment_blur"
         tools:layout="@layout/fragment_blur" />
+    <activity
+        android:id="@+id/viewPagerActivity"
+        android:name="com.example.myfood.ViewPagerActivity"
+        android:label="activity_view_pager"
+        tools:layout="@layout/activity_view_pager" />
 </navigation>

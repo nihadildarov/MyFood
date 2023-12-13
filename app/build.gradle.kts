@@ -82,6 +82,7 @@ dependencies {
     //ksp
     ksp("androidx.room:room-compiler:2.6.1")
 
+    //implementation("androidx.wear.compose:compose-material3:1.0.0-alpha15")
     //worker
     implementation("androidx.work:work-runtime-ktx:$work_version")
 

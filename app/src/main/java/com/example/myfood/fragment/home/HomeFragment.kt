@@ -1,5 +1,6 @@
 package com.example.myfood.fragment.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.myfood.R
+import com.example.myfood.ViewPagerActivity
 import com.example.myfood.databinding.FragmentHomeBinding
 import com.example.myfood.fragment.home.viewmodel.HomeViewModel
 import com.example.myfood.fragment.home.viewmodel.HomeViewModelFactory
@@ -32,7 +34,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        goToViewPager()
         return binding.root
     }
 
@@ -80,5 +82,12 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun goToViewPager(){
+        binding.imgBtnSearch.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_viewPagerActivity)
+        }
+
+
+    }
 
 }
