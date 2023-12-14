@@ -82,6 +82,11 @@ dependencies {
     //ksp
     ksp("androidx.room:room-compiler:2.6.1")
 
+    //datastore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    //lottie
+    implementation("com.airbnb.android:lottie:3.4.0")
     //implementation("androidx.wear.compose:compose-material3:1.0.0-alpha15")
     //worker
     implementation("androidx.work:work-runtime-ktx:$work_version")

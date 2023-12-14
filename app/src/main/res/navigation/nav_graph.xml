@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_viewPagerActivity"
             app:destination="@id/viewPagerActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_stateFragment"
+            app:destination="@id/stateFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -45,4 +48,14 @@
         android:name="com.example.myfood.ViewPagerActivity"
         android:label="activity_view_pager"
         tools:layout="@layout/activity_view_pager" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.myfood.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/stateFragment"
+        android:name="com.example.myfood.datastore.StateFragment"
+        android:label="fragment_state"
+        tools:layout="@layout/fragment_state" />
 </navigation>

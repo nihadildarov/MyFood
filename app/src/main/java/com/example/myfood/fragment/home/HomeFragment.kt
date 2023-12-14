@@ -44,6 +44,7 @@ class HomeFragment : Fragment() {
         viewModel.getRandomMeal()
         observeRandomMeal()
         goToRandomMealDetail()
+        goToStateChanger()
     }
 
 
@@ -76,18 +77,23 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun blurPageOpen(){
-        binding.txtHeadHome.setOnClickListener{
+    private fun blurPageOpen() {
+        binding.txtHeadHome.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_blurFragment)
         }
     }
 
-    private fun goToViewPager(){
-        binding.imgBtnSearch.setOnClickListener{
+    private fun goToViewPager() {
+        binding.imgBtnSearch.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_viewPagerActivity)
         }
-
-
     }
+
+    private fun goToStateChanger() {
+        binding.txtCategory.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_stateFragment)
+        }
+    }
+
 
 }
